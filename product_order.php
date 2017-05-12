@@ -100,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			"card_number" => $card_number,
 			"security_code" => $security_code
 		));
+		$aOrder->addNew();
 		
 	} //END IF(VALID) 
 } //END SERVER_REQUEST==POST
@@ -112,6 +113,8 @@ function test_input($data) {
   return $data;
 }
 ?>
+
+<!-- START FORM -->
 <div id="orderPanel">
 <h3>Place your Order:</h3>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="myForm">
@@ -119,16 +122,24 @@ function test_input($data) {
 		<table class="gridtable">
 			<tr>
 				<th><label for="product">Product<span class="error">*</span></label></th>
-				<td>
-					<span class="error"><?php echo $productErr;?></span><br/>
-					<select name="product" id="product">
-						<option value="">--Select One--</option>
-						<option>iPad</option>
-						<option>iPhone 6S</option>
-						<option>Galaxy 5S</option>
-						<option>Moto X</option>
-					</select>
-				</td>
+					<td>
+						<span class="error"><?php echo $productErr;?></span><br/>
+						<select name="product" id="product">
+							<option value="">--Select One--</option>
+							<option <?php
+								if($product == "iPad") { echo "selected";}
+							?>>iPad</option>
+							<option <?php
+								if($product == "iPhone 6S") { echo "selected";}
+							?>>iPhone 6S</option>
+							<option <?php
+								if($product == "Galaxy 5S") { echo "selected";}
+							?>>Galaxy 5S</option>
+							<option <?php
+								if($product == "Moto X") { echo "selected";}
+							?>>Moto X</option>
+						</select>
+					</td>
 			</tr>
 			<tr>
 				<th><label for="quantity">Quantity:<span class="error">*</span></label></th>
@@ -177,12 +188,21 @@ function test_input($data) {
 				<td>
 					<span class="error"><?php echo $payment_typeErr;?></span><br/>
 					<select name="payment_type" id="payment_type">
-					<option value="">--Select One--</option>
-					<option>Visa</option>
-					<option>Mastercard</option>
-					<option>Discover</option>
-					<option>AMEX</option>
-				</select></td>
+						<option value="">--Select One--</option>
+						<option <?php
+									if ($payment_type == "Visa") { echo "selected";}
+								?>>Visa</option>
+						<option <?php
+									if($payment_type == "Mastercard") { echo "selected";}
+								?>>Mastercard</option>
+						<option <?php
+									if($payment_type == "Discover") { echo "selected";}
+								?>>Discover</option>
+						<option <?php
+									if($payment_type == "AMEX") { echo "selected";}
+								?>>AMEX</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<th><label for="card_number">Card Number<span class="error">*</span></label></th>
