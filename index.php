@@ -8,11 +8,11 @@
 	<tr>
 		<td>
 			<a href="product_order.php">Place an Order<br/>
-			<img src="dollar.jpg" alt="dollar sign"/></a><br/>
+			<img src="img/dollar.jpg" alt="dollar sign"/></a><br/>
 		</td>
 		<td>
 			<a href="search.php">Search by Last name<br/>
-			<img src="search.png" alt="Search Magnifying Glass" class="magGlass"/></a>
+			<img src="img/search.png" alt="Search Magnifying Glass" class="magGlass"/></a>
 		</td>
 		
 	</tr>
